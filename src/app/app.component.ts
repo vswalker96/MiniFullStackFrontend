@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginComponent } from './login/login.component'
+import { UserService } from './user.service'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MiniFullstackFrontend';
+
+  currentTime: string;
+
+  constructor(private userService: UserService) {
+  }
+
+  ngOnInit() {
+
+   
+
+    this.userService.currentTime().subscribe( response => {
+      this.currentTime = response.timeInWords
+    })
+
+  }
 }
+
+
+
+

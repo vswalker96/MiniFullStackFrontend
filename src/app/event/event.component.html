@@ -1,0 +1,71 @@
+
+<form  class="form-inline">
+    <div class="form-group">
+        <h3>Name:</h3>
+        <label for="name" class="sr-only" >Name:</label>
+        <input name="name" type="text" class="form-control" [(ngModel)]="event.name"/>
+    </div>
+<div class="form-group">
+    <h3>Address</h3>
+    <label for="street" >Street:</label> 
+      <input name="street" type="text" class="form-control" [(ngModel)]="event.street"/>
+    <label for="city">City:</label>
+    <input name="city" type="text" class="form-control" [(ngModel)]="event.city"/>
+    <!-- <label for="state">State:</label>
+  <input name="state" type="text" [(ngModel)]="event.state"> -->
+    <label for="zip">Zip Code:</label>
+    <input name="zip" type="number" class ="form-control"[(ngModel)]="event.zip"/>
+  </div>
+  <div class="form-group">
+    <h3>Time</h3>
+  <label for="hour">Hour:</label>
+  <input name="hour" type="number" class="form-control" [(ngModel)]="event.hour"/>
+   <label for="minutes">Minute:</label>
+   <input name="minutes" type="number" class="form-control" [(ngModel)]="event.minute"/>  
+  </div>
+  <button class="btn btn-primary" (click)="createEvent()">Create Event</button> 
+</form>
+
+<div>
+  <h3>My Events</h3>
+  <div >
+    <table class=" mx-4 table table-responsive-sm col-10">
+      <thead>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Time</th>
+      </thead>
+      <tbody *ngFor="let event of myEvents">
+        <td>{{event.name}}</td>
+        <td>{{event.street}} {{event.city}} {{event.zip}}</td>
+        <td>{{event.timeInWords}}</td>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <h3>All Events</h3>
+    
+    
+      <table class =" mx-4 table table-responsive-sm col-10 ">
+        <thead>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Time</th>
+        <th>User</th>
+        </thead>
+        <tbody *ngFor ="let event of allEvents">
+          <td>{{event.name}}</td>
+          <td>{{event.street}} {{event.city}} {{event.zip}}</td>
+          <td>{{event.timeInWords}}</td>
+          <td>{{event.userId.username}}</td>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<div>
+  <button class="btn btn-primary" [routerLink]="['/login']" routerLinkActive="router-link-active"  (click)="clearSession()">Home</button> 
+</div>
+
+<router-outlet></router-outlet>

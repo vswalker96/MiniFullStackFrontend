@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MiniFullstackFrontend"
+    }
+  },
+  "defaultProject": "MiniFullstackFrontend",
+  "cli": {
+    "analytics": false
+  }
 }
